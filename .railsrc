@@ -1,0 +1,8 @@
+def log_to_stdout(log_level)
+  pattern = Logging::Layouts::Pattern.new :pattern => "[%d][#{$$}] %-5l: %m\n", :date_method => :to_pdt_s
+  stdout = Logging::Appenders::Stdout.new('console', :layout => pattern)
+  logger = ActiveRecord::Base.logger
+  logger.add_appenders(stdout)
+  logger.level = log_level || :info
+  logger
+end 

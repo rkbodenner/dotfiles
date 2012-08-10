@@ -1,0 +1,13 @@
+[user]
+  name = Ralph Bodenner
+  email = ralph@newrelic.com
+[alias]
+  co = checkout
+[core]
+  ignorecase = true
+  whitespace = tab-in-indent
+  excludesfile = ~/.gitignore_global
+[color]
+  diff = auto
+[branch]
+  autosetuprebase = always
