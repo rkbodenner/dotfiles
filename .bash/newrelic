@@ -4,7 +4,7 @@ alias mysql_test='mysql -u root -D seldon_test'
 CORE_CMD='unicorn_rails --config-file config/unicorn_config.rb'
 
 # To monitor a local_production instance with a (local) development instance, run all three of these
-alias collector="ruby ~/_work/rpm_site/java_collector/bin/jetty.rb -e development run"
+alias collector="ruby ~/_code/core/java_collector/bin/jetty.rb -e development run"
 alias core_standalone="NO_AUTO_START_COLLECTOR=1 NO_AUTO_START_BEACON=1 NO_AUTO_START_NRSYSMOND=1 $CORE_CMD"
 alias core_lp_mon="MONITOR_LOCAL_PRODUCTION=1 RAILS_ENV=local_production $CORE_CMD"
 
