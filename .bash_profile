@@ -5,6 +5,7 @@ function get_git_branch() {
 export PS1='[$(get_git_branch)] \h:\W  '
 
 alias pico=nano
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 export SVN_EDITOR=pico
 export GIT_EDITOR=pico
 export EDITOR=emacs
