@@ -14,7 +14,10 @@ export ACK_PAGER='less -R'
 # Append my path to the system path
 export PATH=
 eval `/usr/libexec/path_helper -s`
-export PATH=$PATH:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/usr/local/sphinx/bin
+# Hack: Put /usr/local/bin first so we can use homebrew-installed PostgreSQL
+export PATH=/usr/local/bin:$PATH:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/usr/local/sphinx/bin
+
+export DYLD_LIBRARY_PATH="/usr/local/mysql/lib"
 
 alias ls='ls -G'
 alias ll='ls -l'
@@ -28,7 +31,9 @@ alias grep_rb='find . -name "*.rb" -not -path "*/vendor/*" -not -path "*/test/*"
 
 alias img='open -a Preview'
 
-alias migrate='env RAILS_ENV=development rake db:migrate && env RAILS_ENV=test rake db:migrate'
+alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+
+alias migrate='env RAILS_ENV=development bundle exec rake db:migrate && env RAILS_ENV=test bundle exec rake db:migrate'
 alias gemserver='gem server 2&>1 > /dev/null &'
 alias gits='git status'
 alias gsl='git stash list'
