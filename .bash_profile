@@ -39,8 +39,11 @@ alias gits='git status'
 alias gsl='git stash list'
 alias shove='git pull && git push origin master'
 
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 if [ -f ~/.bash/newrelic ]; then
   source ~/.bash/newrelic
 fi
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
