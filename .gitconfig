@@ -6,7 +6,7 @@
   topic = "!t() { git checkout master && git pull --rebase && git checkout -b ralph/$1; }; t"
   repush = "!rp() { if git show-ref --verify --quiet \"refs/heads/ralph/$1\"; then { git checkout master && git fetch && git checkout ralph/$1 && git rebase master && git push origin; }; else echo \"No such branch ralph/$1\"; exit; fi }; rp"
 [core]
-  ignorecase = true
+  ignorecase = false
   whitespace = tab-in-indent
   excludesfile = ~/.gitignore_global
 [color]

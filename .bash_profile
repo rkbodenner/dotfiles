@@ -2,7 +2,9 @@ function get_git_branch() {
   branchname=$(git status -s -b -u no 2> /dev/null || echo '' | head -1)
   echo ${branchname#### }
 }
-export PS1='[$(get_git_branch)] \h:\W  '
+GREEN="$(tput setaf 2)"
+RESET="$(tput sgr0)"
+export PS1='[${GREEN}$(get_git_branch)${RESET}] \h:\W  '
 
 alias pico=nano
 alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
