@@ -7,15 +7,15 @@ RESET="$(tput sgr0)"
 export PS1='[${GREEN}$(get_git_branch)${RESET}] \h:\W  '
 
 alias pico=nano
-alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 export SVN_EDITOR=pico
 export GIT_EDITOR=pico
-export EDITOR=emacs
 export ACK_PAGER='less -R'
 
 # Append my path to the system path
 export PATH=
-eval `/usr/libexec/path_helper -s`
+if [ -f /usr/libexec/path_helper ]; then
+  -eval `/usr/libexec/path_helper -s`
+fi
 # Hack: Put /usr/local/bin first so we can use homebrew-installed PostgreSQL
 export PATH=/usr/local/bin:$PATH:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/usr/local/sphinx/bin
 
@@ -43,9 +43,5 @@ alias shove='git pull && git push origin master'
 
 # [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
-if [ -f ~/.bash/newrelic ]; then
-  source ~/.bash/newrelic
-fi
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
