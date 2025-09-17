@@ -1,1 +1,1 @@
-if [ -f /etc/zshrc; ] then source /etc/zshrc; fi
+if [ -f /etc/zshrc ]; then source /etc/zshrc; fi
